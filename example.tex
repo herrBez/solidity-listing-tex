@@ -1,0 +1,36 @@
+\documentclass{scrartcl}
+\usepackage{hyperref}
+
+\usepackage{listing-solidity}
+
+\begin{document}
+The following example shows how to use the package listing-solidity.
+It is taken from
+\url{http://blockchain.unica.it/projects/ethereum-survey/attacks.html#simpledao}
+
+\begin{lstlisting}[language=Solidity, frame=single]
+
+pragma solidity ^0.4.2;
+
+contract SimpleDAO {   
+  mapping (address => uint) public credit;
+    
+  function donate(address to) payable {
+    credit[to] += msg.value;
+  }
+    
+  function withdraw(uint amount) {
+    if (credit[msg.sender]>= amount) {
+      bool res = msg.sender.call.value(amount)();
+      credit[msg.sender]-=amount;
+    }
+  }  
+
+  function queryCredit(address to) returns (uint){
+    return credit[to];
+  }
+}
+
+\end{lstlisting}
+
+\end{document}
