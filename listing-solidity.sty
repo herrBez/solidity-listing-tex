@@ -9,6 +9,7 @@
 
 \lstdefinelanguage{Solidity}{
     keywords={
+    constructor,
     solidity, % only for the initial pragma, actually it is not a keyword 
     % SourceUnit
     pragma, % PragmaDirective
@@ -82,10 +83,11 @@
     % InlineAssemblyBlock
     % AssemblyItem = Identifier | FunctionalAssemblyExpression | InlineAssemblyBlock | AssemblyVariableDeclaration | AssemblyAssignment | AssemblyLabel | NumberLiteral | StringLiteral | HexLiteral
     % AssemblyExpression = Identifier | FunctionalAssemblyExpression | NumberLiteral | StringLiteral | HexLiteral
-    let % AssemblyVariableDeclaration
+    let, % AssemblyVariableDeclaration
     % AssemblyAssignment
     % AssemblyLabel
     % FunctionalAssemblyExpression
+    this % added by me
     },
     basicstyle=\ttfamily,
     keywordstyle=\color{blue}\bfseries,
